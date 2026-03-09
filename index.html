@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Temporarily Unavailable – Nafsi For Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #212121;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      background-color: transparent;
+      width: 100%;
+      max-width: 790px;
+      border-radius: 0;
+      padding: 0 88px;
+      text-align: center;
+    }
+
+    /* Teal glow — top-right (fixed to viewport) */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -120px;
+      right: -120px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle at center, rgba(15, 109, 112, 0.55) 0%, rgba(42, 140, 139, 0.18) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Teal glow — bottom-left (fixed to viewport) */
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -120px;
+      left: -120px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle at center, rgba(15, 109, 112, 0.55) 0%, rgba(42, 140, 139, 0.18) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .panel-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Full-page dark background via html element */
+    html {
+      background-color: #212121;
+    }
+
+    .logo-wrap {
+      margin-bottom: 38px;
+    }
+
+    .logo-wrap img {
+      height: 160px;
+      width: auto;
+      filter: invert(1) brightness(0.95);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .heading {
+      font-size: 40px;
+      font-weight: 700;
+      color: #f3f3f3;
+      line-height: 1.15;
+      letter-spacing: -0.4px;
+      margin-bottom: 28px;
+      white-space: nowrap;
+    }
+
+    .paragraphs {
+      margin-bottom: 26px;
+    }
+
+    .para {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #e0e0e0;
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 13px;
+    }
+
+    .para:last-child {
+      margin-bottom: 0;
+    }
+
+    .accent-line {
+      font-size: 17px;
+      font-weight: 600;
+      font-style: normal;
+      color: #58d3d0;
+      line-height: 1.45;
+      max-width: 580px;
+      margin: 0 auto 26px;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      height: 40px;
+      border-radius: 5px;
+      transition: opacity 0.15s ease;
+      line-height: 1;
+    }
+
+    .btn:hover {
+      opacity: 0.82;
+    }
+
+    /* Email button */
+    .btn-email {
+      background: #ffffff;
+      color: #181818;
+      border: 1px solid #c0c0c0;
+      padding-left: 16px;
+      padding-right: 0;
+      overflow: hidden;
+    }
+
+    .btn-email .btn-label {
+      padding-right: 13px;
+    }
+
+    .btn-email .btn-icon-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1a1a1a;
+      height: 40px;
+      width: 36px;
+      flex-shrink: 0;
+      align-self: stretch;
+    }
+
+    .btn-email .btn-icon-box svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* WhatsApp button */
+    .btn-whatsapp {
+      background: transparent;
+      color: #f0f0f0;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0 22px;
+    }
+
+    /* Footer lines */
+    .footer-lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .footer-normal {
+      font-size: 12px;
+      font-weight: 400;
+      color: #b8b8b8;
+    }
+
+    .footer-bold {
+      font-size: 12px;
+      font-weight: 700;
+      color: #cccccc;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      body {
+        padding: 28px 16px;
+        align-items: flex-start;
+      }
+
+      .panel {
+        padding: 0 20px;
+      }
+
+      .logo-wrap {
+        margin-bottom: 26px;
+      }
+
+      .logo-wrap img {
+        height: 52px;
+      }
+
+      .heading {
+        font-size: 26px;
+        margin-bottom: 20px;
+        letter-spacing: -0.2px;
+      }
+
+      .para {
+        font-size: 12px;
+        line-height: 1.65;
+        margin-bottom: 11px;
+      }
+
+      .paragraphs {
+        margin-bottom: 20px;
+      }
+
+      .accent-line {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        max-width: 210px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+        height: 40px;
+      }
+
+      .btn-email {
+        padding-left: 0;
+        justify-content: space-between;
+      }
+
+      .btn-email .btn-label {
+        flex: 1;
+        text-align: center;
+        padding-left: 36px; /* balance the icon box width */
+        padding-right: 0;
+      }
+
+      .btn-email .btn-icon-box {
+        width: 36px;
+        flex-shrink: 0;
+      }
+
+      .btn-whatsapp {
+        padding: 0 16px;
+      }
+
+      .footer-normal,
+      .footer-bold {
+        font-size: 11.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="panel-inner">
+
+      <div class="logo-wrap">
+        <img src="Business/Nafsi Business Logo Black 1.svg" alt="Nafsi For Business">
+      </div>
+
+      <h1 class="heading">Service Temporarily Unavailable</h1>
+
+      <div class="paragraphs">
+        <p class="para">Our website is currently unavailable due to a regional infrastructure outage affecting cloud services in the UAE region. Some systems hosted on Amazon Web Services EC2 infrastructure are temporarily impacted.</p>
+        <p class="para">Our team is actively monitoring the situation and working to restore the website as soon as the service becomes stable again.</p>
+        <p class="para">We sincerely appreciate your patience and understanding while this issue is being resolved.</p>
+      </div>
+
+      <p class="accent-line">If you need immediate assistance, please contact us directly:</p>
+
+      <div class="buttons">
+        <a href="mailto:Eltayeb.hassan@nafsihealth.com" class="btn btn-email">
+          <span class="btn-label">Contact via Email</span>
+          <span class="btn-icon-box" aria-hidden="true">
+            <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+        <a href="https://wa.me/97143930096" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Support</a>
+      </div>
+
+      <div class="footer-lines">
+        <span class="footer-normal">Thank you for your understanding.</span>
+        <span class="footer-bold">Please check back soon.</span>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
